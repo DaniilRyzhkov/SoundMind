@@ -1,0 +1,80 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Style_Button_next">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/btn_style_next</item>
+    </style>
+
+    <style name="Style_Button_hint">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:background">@drawable/btn_style_hint</item>
+    </style>
+
+    <style name="Style_Button_youtube">
+        <item name="android:background">@drawable/youtube_icon</item>
+    </style>
+
+    <style name="Style_Button_vk">
+        <item name="android:background">@drawable/vk_icon</item>
+    </style>
+
+    <style name="Style_Button_instagram">
+        <item name="android:background">@drawable/instagram_icon</item>
+    </style>
+
+    <style name="Style_Button_fb">
+        <item name="android:background">@drawable/facebook_icon</item>
+    </style>
+
+    <style name="Style_Button_telegram">
+        <item name="android:background">@drawable/telegram_icon</item>
+    </style>
+
+    <style name="text_title">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
+    <style name="text_subtitle">
+        <item name="android:textColor">@color/colorPrimaryVeryDark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+    <style name="text_simple">
+        <item name="android:textColor">@color/colorPrimaryVeryDark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+    </style>
+
+
+    <style name="intro_title_style">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="intro_text_style">
+        <item name="android:textColor">@color/colorPrimaryVeryDark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:paddingStart">36dp</item>
+        <item name="android:paddingEnd">36dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

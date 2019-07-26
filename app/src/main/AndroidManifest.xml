@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.qualitasvita.soundmind"
+    >
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/my_backup_rules"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        >
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".IntroActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".NewNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".S1_SituationActivity"
+            android:label="@string/label_situation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".S2_EmotionActivity"
+            android:label="@string/label_emotions"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".S3_ThoughtActivity"
+            android:label="@string/label_thoughts"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".S4_ActionActivity"
+            android:label="@string/label_action"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".S5_ResponseActivity"
+            android:label="@string/label_response"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".S6_ResultActivity"
+            android:label="@string/label_result"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".CompletedNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HelpActivity"
+            android:label="@string/label_help"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InfoActivity"
+            android:label="@string/label_about"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MistakesActivity"
+            android:label="@string/label_mistakes"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

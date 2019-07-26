@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.07"
+        android:contentDescription="@string/background_mind_fullness"
+        android:src="@drawable/take_book"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_1_what_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_1_what_text" />
+
+            <TextView
+                style="@style/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_2_when_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_2_when_text" />
+
+            <TextView
+                style="@style/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_3_how_title" />
+
+            <TextView
+                style="@style/text_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_32_situation_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_32_situation_text" />
+
+            <TextView
+                style="@style/text_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_33_emotion_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_33_emotion_text" />
+
+            <TextView
+                style="@style/text_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_34_thought_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_34_thought_text" />
+
+            <TextView
+                style="@style/text_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_35_action_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_35_action_text" />
+
+            <TextView
+                style="@style/text_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_36_response_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_36_response_text" />
+
+            <TextView
+                android:id="@+id/btnOpenMistakesActivity_copy"
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/button_tv_mistakes"
+                android:textColor="@color/colorAccent" />
+
+
+            <!--<Button
+                android:id="@+id/btnOpenMistakesActivity_copy"
+                style="@style/Style_Button_hint"
+                android:layout_width="108dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/button_mistakes"
+                />-->
+
+
+            <TextView
+                style="@style/text_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_37_result_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_37_result_text" />
+
+            <TextView
+                style="@style/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_4_send_title" />
+
+            <TextView
+                style="@style/text_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_4_send_text" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="36dp"
+                android:autoLink="web"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/link_web" />
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
