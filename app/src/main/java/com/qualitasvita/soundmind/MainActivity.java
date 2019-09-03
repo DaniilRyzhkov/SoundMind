@@ -8,9 +8,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.qualitasvita.soundmind.adapters.MainAdapter;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -33,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static ArrayList<Note> notes = new ArrayList<>(); // БД в виде списка
     private static ArrayList<String> items; //Список заголовков пунктов в списке записей
-    private ListView listNote; //Список пунктов записей
+    private RecyclerView listNote; //Список пунктов записей
     private static final int REQUEST_CODE_NEW_NOTE = 0;
-    private static final int REQUEST_CODE_COMPLETED_NOTE = 9;
-    private static final int REQUEST_CODE_INTRO = 8;
+    public static final int REQUEST_CODE_COMPLETED_NOTE = 9;
+    //public static final int REQUEST_CODE_INTRO = 8;
     private static final String REF_KEY = "IntroSlider";
     private static final String REF_FLAG = "FirstTimeStartFlag";
     private static final String TAG = "sound_mind";
@@ -73,14 +78,20 @@ public class MainActivity extends AppCompatActivity {
         setTransparentBackground();
 
         items = createItemList(notes); //Формирование списка заголовков пунктов списка записей
-        ArrayAdapter arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
-        listNote.setAdapter(arrayAdapter);
-        listNote.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //MainAdapter mainAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        MainAdapter mainAdapter = new MainAdapter();
+        listNote.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        listNote.setHasFixedSize(true);
+        listNote.setAdapter(mainAdapter);
+        mainAdapter.setList(notes);
+
+
+        /*listNote.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 openCompletedNote(position);
             }
-        });
+        });*/
         if (BuildConfig.DEBUG) Log.d(TAG, "onResume() completed");
     }
 
@@ -149,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param position значение позиции в notes и соответственно в ListView listNote
      */
-    private void openCompletedNote(int position) {
+    public void openCompletedNote(int position) {
         Intent intent = new Intent(this, CompletedNoteActivity.class);
         Note note = notes.get(position);
         intent.putExtra(Note.class.getSimpleName(), note);
@@ -285,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
         float transparent_back;
         float transparent_hint;
         if (notes.size() < 6) {
-            transparent_back = 1 - notes.size() / 7.5F; // шаг 0.13
+            transparent_back = (1 - notes.size() / 10F) - 0.2F; // шаг 0.1
         } else transparent_back = 0.2F;
         if (notes.size() < 2) {
             transparent_hint = 1 - notes.size() / 1.5F; // шаг 0.67

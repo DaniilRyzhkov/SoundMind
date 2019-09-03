@@ -2,9 +2,9 @@ package com.qualitasvita.soundmind;
 
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.qualitasvita.soundmind.adapters.IntroPagerAdapter;
 
 /**
  * Активити представляет Intro приложения, запускается при первом запуске, а также через меню.

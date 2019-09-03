@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Sound Mind</string>
-    <string name="version">Версия 1.3</string>
+    <string name="version">Версия 1.4</string>
 
     <string name="label_situation">Ситуация</string>
     <string name="label_emotions">Эмоции</string>
