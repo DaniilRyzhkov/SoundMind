@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if (isFirstTimeStartApp()) {
-            startActivityForResult(new Intent(this, WelcomeActivity.class), REQUEST_CODE_INTRO);
+            setFirstTimeStartStatus(false, getApplicationContext());
+            startActivity(new Intent(this, WelcomeActivity.class));
         }
 
         setContentView(R.layout.activity_main);
@@ -113,9 +114,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        if (requestCode == REQUEST_CODE_INTRO) {
+        /*if (requestCode == REQUEST_CODE_INTRO) {
             setFirstTimeStartStatus(false, getApplicationContext());
-        }
+        }*/
     }
 
     @Override

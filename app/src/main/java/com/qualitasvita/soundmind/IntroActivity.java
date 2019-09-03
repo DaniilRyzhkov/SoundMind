@@ -24,7 +24,7 @@ public class IntroActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private LinearLayout layoutDot;
     //private Button btnNext;
-    //private Button btnSkip;
+    private Button btnSkip;
     private ImageView btnStart;
     private int[] layouts;
 
@@ -38,7 +38,7 @@ public class IntroActivity extends AppCompatActivity {
         layoutDot = findViewById(R.id.dot_layout);
         btnStart = findViewById(R.id.button_start);
         //btnNext = findViewById(R.id.btn_next_intro);
-        //btnSkip = findViewById(R.id.btn_skip_intro);
+        btnSkip = findViewById(R.id.btn_skip_intro);
 
         /*btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,12 +59,12 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
-        /*btnSkip.setOnClickListener(new View.OnClickListener() {
+        btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });*/
+        });
 
         layouts = new int[]{R.layout.slide_1, R.layout.slide_2, R.layout.slide_3, R.layout.slide_4};
         IntroPagerAdapter pagerAdapter = new IntroPagerAdapter(layouts, getApplicationContext());
@@ -79,12 +79,12 @@ public class IntroActivity extends AppCompatActivity {
             public void onPageSelected(int i) {
                 if (i == layouts.length - 1) {
                     btnStart.setVisibility(View.VISIBLE);
-                    //btnSkip.setVisibility(View.GONE);
+                    btnSkip.setVisibility(View.GONE);
                     //btnNext.setText(R.string.button_start);
                     //btnNext.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
                 } else {
                     btnStart.setVisibility(View.GONE);
-                    //btnSkip.setVisibility(View.VISIBLE);
+                    btnSkip.setVisibility(View.VISIBLE);
                     //btnNext.setText(R.string.button_next);
                     //btnNext.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
                 }
