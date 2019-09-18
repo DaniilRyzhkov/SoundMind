@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".S3_ThoughtActivity">
+    tools:context=".S3_ThoughtActivity"
+    android:background="@color/colorBackground">
 
     <Button
         android:id="@+id/btnSaveThought"
@@ -19,7 +20,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/thoughtList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

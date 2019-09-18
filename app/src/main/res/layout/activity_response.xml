@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".S5_ResponseActivity">
+    tools:context=".S5_ResponseActivity"
+    android:background="@color/colorBackground">
 
     <EditText
         android:id="@+id/response"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:ems="10"
+        android:fontFamily="@font/neucha"
         android:gravity="start|top"
         android:hint="@string/hint_response"
         android:inputType="textMultiLine|textCapSentences|textNoSuggestions"

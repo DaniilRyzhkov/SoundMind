@@ -1,31 +1,19 @@
 package com.qualitasvita.soundmind;
 
-import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
-/**
- * Активити с инструкциями и подсказками
- */
-public class HelpActivity extends AppCompatActivity {
-
+public class LicenseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
+        setContentView(R.layout.activity_license);
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
-
-        findViewById(R.id.btnOpenMistakesActivity_copy).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HelpActivity.this, MistakesActivity.class));
-            }
-        });
-
-
     }
 
     @Override
@@ -36,3 +24,4 @@ public class HelpActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+

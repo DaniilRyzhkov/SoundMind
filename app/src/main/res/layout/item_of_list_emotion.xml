@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,10 +22,12 @@
             android:layout_weight="1"
             android:text="@string/emotion_anger"
             android:textColor="@color/colorDisable"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/neucha"/>
 
         <TextView
             android:id="@+id/tvEmLevel"
+            android:fontFamily="@font/neucha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

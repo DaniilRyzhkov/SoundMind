@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <!--<TextView
-        android:id="@+id/intro_title"
+        android:id="@+id/intro_title"match_parent
         style="@style/intro_title_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

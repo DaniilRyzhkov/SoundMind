@@ -44,6 +44,7 @@ public class NewNoteActivity extends AppCompatActivity {
     public static final String EXTRA_ACTION_TEXT = "com.qualitasvita.soundmind.action_text";
     public static final String EXTRA_RESPONSE_TEXT = "com.qualitasvita.soundmind.response_text";
     public static final String EXTRA_RESULT_TEXT = "com.qualitasvita.soundmind.result_text";
+
     public static final String EXTRA_EMOTION_LIST = "com.qualitasvita.soundmind.emotion_list";
     public static final String EXTRA_THOUGHT_LIST = "com.qualitasvita.soundmind.thought_list";
 
@@ -95,6 +96,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case 1:
                 if (resultCode == RESULT_OK) {

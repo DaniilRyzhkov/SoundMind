@@ -39,6 +39,7 @@
 
     <string name="toast_saved">Запись сохранена</string>
     <string name="toast_deleted">Запись удалена</string>
+    <string name="toast_forgot_to_set_the_level">Не установлена степень уверенности</string>
 
     <string name="button_cancel">Отмена</string>
     <string name="button_delete">Удалить</string>
@@ -50,6 +51,7 @@
     <string name="button_next">Далее</string>
     <string name="button_skip">Пропустить</string>
     <string name="button_tv_mistakes">Нажмите, чтобы посмотреть ошибки</string>
+    <string name="button_tv_license_info">Стороннее программное обеспечение</string>
     <string name="button_mistakes">Ошибки</string>
     <string name="button_start">Начать</string>
 
@@ -132,11 +134,16 @@
     <string name="mistake_12_title">12. Туннельное мышление</string>
     <string name="mistake_12_text">Акцент на негативных аспектах ситуации.\n\nПример: «Учитель моего сына ничего не может сделать правильно. Он постоянно критикует, не чувствует детей, и вообще он не состоялся как педагог».</string>
 
+    <string name="license_dagger">Dagger\nThe software may be used under license agreement available for review at:\nhttps://github.com/google/dagger/blob/master/LICENSE.txt</string>
+    <string name="license_neucha">Neucha font\nAbout font: https://fonts.google.com/specimen/Neucha\nThe software may be used under license agreement available for review at:\nhttp://scripts.sil.org/OFL</string>
+
     <string name="zero">0</string>
     <string name="thought">Мысль</string>
     <string name="date">date</string>
     <string name="report_theme">Report</string>
     <string name="background_mind_fullness">background_mind_fullness</string>
+    <string name="button_home">домой</string>
+    <string name="mistake_0_text">Когнитивные искажения — это систематические ошибки в мышлении, поведении и восприятии ситуации. Предубеждения, стереотипы, эмоции и другие факторы могут стать причиной ловушки, в которую попадает мышление. Это мешает мыслить рационально, приводит к неточным суждениям, искажает восприятие действительности. Научно доказано существование нескольких десятков различных искажений. Ниже представлены лишь самые распространенные.</string>
 
 
 </resources>

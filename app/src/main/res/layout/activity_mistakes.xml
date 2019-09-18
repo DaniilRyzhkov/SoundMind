@@ -4,13 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MistakesActivity">
+    tools:context=".MistakesActivity"
+    android:background="@color/colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:orientation="vertical">
+
+        <TextView
+            style="@style/text_simple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mistake_0_text" />
 
         <TextView
             style="@style/text_title"

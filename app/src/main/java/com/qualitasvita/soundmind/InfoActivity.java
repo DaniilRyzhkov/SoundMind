@@ -69,6 +69,13 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.btnOpenLicenseActivity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InfoActivity.this, LicenseActivity.class));
+            }
+        });
+
     }
 
     @Override

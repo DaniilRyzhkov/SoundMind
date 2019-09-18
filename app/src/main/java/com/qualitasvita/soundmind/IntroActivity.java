@@ -2,9 +2,6 @@ package com.qualitasvita.soundmind;
 
 import android.graphics.Color;
 import android.os.Build;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -14,6 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 
 import com.qualitasvita.soundmind.adapters.IntroPagerAdapter;
 
@@ -29,6 +30,7 @@ public class IntroActivity extends AppCompatActivity {
     private Button btnSkip;
     private ImageView btnStart;
     private int[] layouts;
+    private IntroPagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,7 @@ public class IntroActivity extends AppCompatActivity {
         });
 
         layouts = new int[]{R.layout.slide_1, R.layout.slide_2, R.layout.slide_3, R.layout.slide_4};
-        IntroPagerAdapter pagerAdapter = new IntroPagerAdapter(layouts, getApplicationContext());
+        pagerAdapter = new IntroPagerAdapter(layouts, getApplicationContext());
         viewPager.setAdapter(pagerAdapter);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -105,6 +107,7 @@ public class IntroActivity extends AppCompatActivity {
      * - из layout удаляем все элементы
      * - создаем TextView с четыремя точками
      * - точку соответствущей номеру страницы окрашиваем в цвет Accent.
+     *
      * @param page номер текущего слайда
      */
     private void setDotStatus(int page) {
@@ -129,5 +132,11 @@ public class IntroActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.TRANSPARENT);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        pagerAdapter = null;
     }
 }

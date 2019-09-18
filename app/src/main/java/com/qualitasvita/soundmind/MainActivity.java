@@ -24,7 +24,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static ArrayList<Note> notes = new ArrayList<>(); // БД в виде списка
-    private static ArrayList<String> items; //Список заголовков пунктов в списке записей
+    //private static ArrayList<String> items; //Список заголовков пунктов в списке записей
     private RecyclerView listNote; //Список пунктов записей
     private static final int REQUEST_CODE_NEW_NOTE = 0;
     public static final int REQUEST_CODE_COMPLETED_NOTE = 9;
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String REF_FLAG = "FirstTimeStartFlag";
     private static final String TAG = "sound_mind";
     public static final String EXTRA_NOTE_POSITION = "com.qualitasvita.soundmind.note_position";
+
+    ImageView backgroundMonster;
+    TextView hintHelp, hintCreate;
 
     @Override
 
@@ -58,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
+
+        backgroundMonster = findViewById(R.id.background_monster);
+        hintHelp = findViewById(R.id.hint_help);
+        hintCreate = findViewById(R.id.hint_create);
+
         loadData();
         listNote = findViewById(R.id.listNote);
         //deleteData(); //Резервное форматирование базы данных
@@ -77,26 +87,18 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         setTransparentBackground();
 
-        items = createItemList(notes); //Формирование списка заголовков пунктов списка записей
-        //MainAdapter mainAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         MainAdapter mainAdapter = new MainAdapter();
         listNote.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         listNote.setHasFixedSize(true);
         listNote.setAdapter(mainAdapter);
         mainAdapter.setList(notes);
 
-
-        /*listNote.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                openCompletedNote(position);
-            }
-        });*/
         if (BuildConfig.DEBUG) Log.d(TAG, "onResume() completed");
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_NEW_NOTE) {
             if (resultCode == RESULT_OK) {
                 Bundle arguments = data.getExtras();
@@ -166,26 +168,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(Note.class.getSimpleName(), note);
         intent.putExtra(EXTRA_NOTE_POSITION, position);
         startActivityForResult(intent, REQUEST_CODE_COMPLETED_NOTE);
-    }
-
-    // временный метод, будет заменен адаптером
-    private ArrayList<String> createItemList(ArrayList<Note> notes) {
-        items = new ArrayList<>();
-        for (Note note : notes) {
-            String title;
-            if (note.getSituationText() == null) {
-                title = "";
-            } else {
-                title = note.getSituationText();
-                if (title.length() > 27) {
-                    title = title.substring(0, 27).trim() + "...";
-                }
-            }
-            title = note.getDate() + "\n" + title;
-            items.add(title);
-        }
-        if (BuildConfig.DEBUG) Log.d(TAG, "createItemList() completed");
-        return items;
     }
 
     /**
@@ -273,8 +255,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Метод вызывается во время первого запуска приложения в MainActivity после закрытия IntroActivity.
-     * Если приложение закрыть до закрытия IntroActivity, то значение соответственно не изменится.
+     * Метод вызывается во время первого запуска приложения в MainActivity
      *
      * @param status  false для блокировки
      * @param context getApplicationContext()
@@ -288,22 +269,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Метод изменяет прозрачность фонового рисунка с 1.0 до 0.2 в зависимости от
+     * Метод изменяет прозрачность фонового рисунка с 0.8 до 0.2 в зависимости от
      * количества сделанных записей.
-     * Также изменяется прозрачность сообщений с подсказками
+     * Также изменяется видимость сообщений с подсказками
      */
     private void setTransparentBackground() {
         float transparent_back;
-        float transparent_hint;
+        //float transparent_hint;
         if (notes.size() < 6) {
             transparent_back = (1 - notes.size() / 10F) - 0.2F; // шаг 0.1
         } else transparent_back = 0.2F;
-        if (notes.size() < 2) {
-            transparent_hint = 1 - notes.size() / 1.5F; // шаг 0.67
-        } else transparent_hint = 0F;
-        findViewById(R.id.background_monster).setAlpha(transparent_back);
-        findViewById(R.id.hint_help).setAlpha(transparent_hint);
-        findViewById(R.id.hint_create).setAlpha(transparent_hint);
+        if (notes.size() < 1) {
+            //transparent_hint = 1 - notes.size() / 1.5F; // шаг 0.67
+            hintHelp.setVisibility(View.VISIBLE);
+            hintCreate.setVisibility(View.VISIBLE);
+        } else {
+            //transparent_hint = 0F;
+            hintHelp.setVisibility(View.GONE);
+            hintCreate.setVisibility(View.GONE);
+        }
+        backgroundMonster.setAlpha(transparent_back);
+        //findViewById(R.id.hint_help).setAlpha(transparent_hint);
+        //findViewById(R.id.hint_create).setAlpha(transparent_hint);
     }
 
    /* //Метод. Резервное форматирование базы

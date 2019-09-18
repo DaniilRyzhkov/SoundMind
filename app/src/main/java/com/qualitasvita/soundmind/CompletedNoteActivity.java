@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -71,6 +72,15 @@ public class CompletedNoteActivity extends AppCompatActivity {
                 emailIntent.putExtra(Intent.EXTRA_TEXT, messageBuilder());
                 //CompletedNoteActivity.this.startActivity(Intent.createChooser(emailIntent, "Отправка сообщения..."));
                 CompletedNoteActivity.this.startActivity(emailIntent);
+            }
+        });
+
+        // Закрыть активити, вернуться на главный экран
+        Button homeButton = findViewById(R.id.btnHome);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CompletedNoteActivity.this.finish();
             }
         });
 

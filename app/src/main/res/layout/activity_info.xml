@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InfoActivity"
-    >
+    android:background="@color/colorBackground"
+    tools:context=".InfoActivity">
 
 
     <LinearLayout
@@ -15,8 +15,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:contentDescription="@string/about_logo"
             app:srcCompat="@drawable/company_logo" />
@@ -26,6 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:orientation="vertical">
+
+
 
             <TextView
                 android:id="@+id/textView2"
@@ -130,6 +133,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/version" />
+
+            <TextView
+                android:id="@+id/btnOpenLicenseActivity"
+                style="@style/text_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/button_tv_license_info"
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
     </LinearLayout>

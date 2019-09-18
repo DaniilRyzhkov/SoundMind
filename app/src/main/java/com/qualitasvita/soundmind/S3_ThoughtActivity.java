@@ -2,8 +2,12 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,18 +15,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.qualitasvita.soundmind.adapters.ThoughtAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Активити получает информацию об мыслях, отправляет обратно в NewNoteActivity
  */
 public class S3_ThoughtActivity extends AppCompatActivity {
 
     Button btnSaveThought;
-    ListView thoughtsList;
+    RecyclerView thoughtsList;
     public static List<Answer> thoughts;
 
     @Override
@@ -34,21 +40,54 @@ public class S3_ThoughtActivity extends AppCompatActivity {
         setThoughtArray();
         thoughtsList = findViewById(R.id.thoughtList);
 
-        ThoughtAdapter thoughtAdapter = new ThoughtAdapter(this, R.layout.item_of_list_thought, thoughts);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(S3_ThoughtActivity.this);
+
+        ThoughtAdapter thoughtAdapter = new ThoughtAdapter(thoughts, linearLayoutManager); // обнулить в ондестрой?
+        thoughtsList.setLayoutManager(linearLayoutManager);
+        thoughtsList.setHasFixedSize(false);
         thoughtsList.setAdapter(thoughtAdapter);
+        linearLayoutManager.setSmoothScrollbarEnabled(true);
 
         btnSaveThought = findViewById(R.id.btnSaveThought);
         btnSaveThought.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String thoughtText = NewNoteActivity.toStringFromAnswer(thoughts);
-                Intent intent = new Intent();
-                intent.putExtra(NewNoteActivity.EXTRA_THOUGHT_TEXT, thoughtText);
-                intent.putExtra(NewNoteActivity.EXTRA_THOUGHT_LIST, NewNoteActivity.createResultList(thoughts));
-                setResult(RESULT_OK, intent);
-                finish();
+                boolean correctKey = true; // Проверка наличия текста и выставленного уровня
+                for (Answer thought : thoughts) {
+                    if (!thought.getText().equals("") && thought.getLevel() == 0) { // Если текст введен, а уровень не выставлен
+                        Toast.makeText(S3_ThoughtActivity.this, // Показать напоминание
+                                getResources().getString(R.string.toast_forgot_to_set_the_level), Toast.LENGTH_LONG).show();
+                        correctKey = false;
+                        break;
+                    }
+                }
+                if (correctKey) {
+                    if (thoughts.get(0).getLevel() == 0) // Если у первой записи не выставлен уровень
+                        thoughts.remove(0); // Значит она пустая, удалить
+                    thoughts = invertList(thoughts);
+                    String thoughtText = NewNoteActivity.toStringFromAnswer(thoughts);
+                    Intent intent = new Intent();
+                    intent.putExtra(NewNoteActivity.EXTRA_THOUGHT_TEXT, thoughtText);
+                    intent.putExtra(NewNoteActivity.EXTRA_THOUGHT_LIST, NewNoteActivity.createResultList(thoughts));
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
             }
         });
+    }
+
+    /**
+     * Метод меняет расположение записей в списке в обратном порядке
+     *
+     * @param thoughts целевой список
+     * @return список с обратным порядком
+     */
+    private List<Answer> invertList(List<Answer> thoughts) {
+        List<Answer> invertThoughts = new ArrayList<>();
+        for (Answer thought : thoughts) {
+            invertThoughts.add(0, thought);
+        }
+        return invertThoughts;
     }
 
     private void setThoughtArray() {
