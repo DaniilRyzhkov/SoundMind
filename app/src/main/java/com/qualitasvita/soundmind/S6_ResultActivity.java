@@ -2,8 +2,11 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,9 +26,11 @@ import java.util.List;
  */
 public class S6_ResultActivity extends AppCompatActivity {
 
-    Button btnSaveResult;
+    Button btnSaveResult, btnAddPositive;
     ListView resultList;
     private static List<Answer> result;
+
+    String positiveText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +50,20 @@ public class S6_ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String resultText1 = ((TextView) findViewById(R.id.resultRead)).getText().toString();
                 String resultText2 = NewNoteActivity.toStringFromAnswer(result);
-                String resultText = resultText1 + "\n" + resultText2;
+                String resultText = resultText1 + "\n\n" + resultText2;
+                if (positiveText != null) resultText += positiveText;
                 Intent intent = new Intent();
                 intent.putExtra(NewNoteActivity.EXTRA_RESULT_TEXT, resultText);
                 setResult(RESULT_OK, intent);
                 finish();
+            }
+        });
+
+        btnAddPositive = findViewById(R.id.btnAddPositiveEmotion);
+        btnAddPositive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(new Intent(S6_ResultActivity.this, PositiveEmotionActivity.class), 44);
             }
         });
     }
@@ -110,4 +124,11 @@ public class S6_ResultActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 44 && resultCode == RESULT_OK) {
+            positiveText = data.getStringExtra("positive");
+        }
+    }
 }

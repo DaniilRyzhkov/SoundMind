@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".LicenseActivity"></activity>
+
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -78,6 +79,14 @@
             android:name=".MistakesActivity"
             android:label="@string/label_mistakes"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".LicenseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PositiveEmotionActivity"
+            android:label="@string/label_positive"
+            android:screenOrientation="portrait"
+            />
 
         <meta-data
             android:name="preloaded_fonts"

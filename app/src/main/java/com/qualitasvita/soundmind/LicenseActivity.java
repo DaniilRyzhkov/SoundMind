@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+/**
+ * Активити отображает информацию о стороннем программном обеспечении, по требованию лицензий
+ */
 public class LicenseActivity extends AppCompatActivity {
 
     @Override

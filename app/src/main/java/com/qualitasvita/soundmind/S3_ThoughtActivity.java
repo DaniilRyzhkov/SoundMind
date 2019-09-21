@@ -46,7 +46,7 @@ public class S3_ThoughtActivity extends AppCompatActivity {
         thoughtsList.setLayoutManager(linearLayoutManager);
         thoughtsList.setHasFixedSize(false);
         thoughtsList.setAdapter(thoughtAdapter);
-        linearLayoutManager.setSmoothScrollbarEnabled(true);
+        //linearLayoutManager.setSmoothScrollbarEnabled(true);
 
         btnSaveThought = findViewById(R.id.btnSaveThought);
         btnSaveThought.setOnClickListener(new View.OnClickListener() {

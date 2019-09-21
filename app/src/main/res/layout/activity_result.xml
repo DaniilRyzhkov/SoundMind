@@ -40,6 +40,19 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btnAddPositiveEmotion"
+        style="@style/Style_Button_hint"
+        android:layout_width="108dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/button_add_positive_emotion"
+        android:text="@string/button_add_positive_emotion"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnSaveResult" />
+
+    <Button
         android:id="@+id/btnSaveResult"
         style="@style/Style_Button_next"
         android:layout_width="108dp"
