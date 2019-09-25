@@ -29,8 +29,10 @@ public class S6_ResultActivity extends AppCompatActivity {
     Button btnSaveResult, btnAddPositive;
     ListView resultList;
     private static List<Answer> result;
+    private static ArrayList<Answer> positiveEmotions;
 
-    String positiveText;
+    private static final int REQUEST_CODE_POSITIVE = 7;
+    public static final String EXTRA_POSITIVE = "com.qualitasvita.soundmind.positive";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class S6_ResultActivity extends AppCompatActivity {
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
 
         setResultArray();
+        setPositiveEmotionArray();
         resultList = findViewById(R.id.resultList);
 
         EmotionAdapter resultAdapter = new EmotionAdapter(this, R.layout.item_of_list_emotion, result);
@@ -50,8 +53,8 @@ public class S6_ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String resultText1 = ((TextView) findViewById(R.id.resultRead)).getText().toString();
                 String resultText2 = NewNoteActivity.toStringFromAnswer(result);
-                String resultText = resultText1 + "\n\n" + resultText2;
-                if (positiveText != null) resultText += positiveText;
+                String resultText3 = getPositiveString(positiveEmotions);
+                String resultText = resultText1 + "\n\n" + resultText2 + resultText3;
                 Intent intent = new Intent();
                 intent.putExtra(NewNoteActivity.EXTRA_RESULT_TEXT, resultText);
                 setResult(RESULT_OK, intent);
@@ -63,7 +66,9 @@ public class S6_ResultActivity extends AppCompatActivity {
         btnAddPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(new Intent(S6_ResultActivity.this, PositiveEmotionActivity.class), 44);
+                Intent intent = new Intent(S6_ResultActivity.this, PositiveEmotionActivity.class);
+                intent.putExtra(EXTRA_POSITIVE, positiveEmotions);
+                startActivityForResult(intent, REQUEST_CODE_POSITIVE);
             }
         });
     }
@@ -78,6 +83,22 @@ public class S6_ResultActivity extends AppCompatActivity {
         result = new ArrayList<>();
         result.addAll(emotions);
         result.addAll(thoughts);
+    }
+
+    /**
+     * Инициализация списка положительных эмоций
+     */
+    private void setPositiveEmotionArray() {
+        positiveEmotions = new ArrayList<>();
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_serenity)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_gratitude)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_inspiration)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_hope)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_optimism)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_joy)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_calm)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_satisfaction)));
+        positiveEmotions.add(new Answer(getResources().getString(R.string.positive_emotion_enthusiasm)));
     }
 
     @Override
@@ -127,8 +148,28 @@ public class S6_ResultActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 44 && resultCode == RESULT_OK) {
-            positiveText = data.getStringExtra("positive");
+        if (requestCode == REQUEST_CODE_POSITIVE && resultCode == RESULT_OK) {
+            positiveEmotions = NewNoteActivity.getList(data.getSerializableExtra(EXTRA_POSITIVE));
         }
+    }
+
+    /**
+     * Преобразование списка эмоций в строку, включив только выбранные эмоции
+     *
+     * @param emotions целевой список
+     * @return готовая строка
+     */
+    private String getPositiveString(List<Answer> emotions) {
+        StringBuilder text = new StringBuilder();
+        for (Answer emotion : emotions) {
+            if (emotion.getLevel() > 0) {
+                text.append(emotion.getText());
+                text.append("\n");
+            }
+        }
+        String str = text.toString();
+        // Может стоит использовать не одну строку, а массив строк?
+        if (str.length() > 0) return "\n\n" + str.substring(0, str.length() - 1);
+        else return "";
     }
 }

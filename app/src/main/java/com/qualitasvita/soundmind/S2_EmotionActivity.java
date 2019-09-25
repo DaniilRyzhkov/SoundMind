@@ -52,17 +52,22 @@ public class S2_EmotionActivity extends AppCompatActivity {
 
     private void setEmotionArray() {
         emotions = new ArrayList<>();
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_anxiety)));
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_fear)));
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_anger)));
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_oppression)));
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_shame)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_hurt)));
         emotions.add(new Answer(getResources().getString(R.string.negative_emotion_guilt)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_anger)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_sadness)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_pity)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_spite)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_injustice)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_insult)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_despair)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_oppression)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_betrayal)));
         emotions.add(new Answer(getResources().getString(R.string.negative_emotion_frustration)));
         emotions.add(new Answer(getResources().getString(R.string.negative_emotion_jealousy)));
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_hurt)));
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_insult)));
-        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_sadness)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_fear)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_shame)));
+        emotions.add(new Answer(getResources().getString(R.string.negative_emotion_anxiety)));
         emotions.add(new Answer(getResources().getString(R.string.negative_emotion_apathy)));
     }
 

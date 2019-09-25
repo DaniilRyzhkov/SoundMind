@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Sound Mind</string>
-    <string name="version">Версия 1.4</string>
+    <string name="version">Версия 1.5</string>
 
     <string name="label_situation">Ситуация</string>
     <string name="label_emotions">Эмоции</string>
@@ -22,30 +22,33 @@
     <string name="hint_help">Нажмите на вопросительный знак, если вам нужна помощь</string>
     <string name="hint_create">Нажмите на большую оранжевую кнопку, чтобы сделать запись</string>
 
-    <string name="negative_emotion_anger">Гнев</string>
-    <string name="negative_emotion_jealousy">Ревность</string>
-    <string name="negative_emotion_shame">Стыд</string>
-    <string name="negative_emotion_guilt">Вина</string>
-    <string name="negative_emotion_frustration">Разочарование</string>
-    <string name="negative_emotion_oppression">Подавленность</string>
-    <string name="negative_emotion_anxiety">Тревога</string>
-    <string name="negative_emotion_fear">Страх</string>
     <string name="negative_emotion_hurt">Боль</string>
-    <string name="negative_emotion_insult">Обида</string>
+    <string name="negative_emotion_guilt">Вина</string>
+    <string name="negative_emotion_anger">Гнев</string>
     <string name="negative_emotion_sadness">Грусть</string>
+    <string name="negative_emotion_pity">Жалость</string>
+    <string name="negative_emotion_spite">Злость</string>
+    <string name="negative_emotion_injustice">Несправедливость</string>
+    <string name="negative_emotion_insult">Обида</string>
+    <string name="negative_emotion_despair">Отчаяние</string>
+    <string name="negative_emotion_oppression">Подавленность</string>
+    <string name="negative_emotion_betrayal">Предательство</string>
+    <string name="negative_emotion_frustration">Разочарование</string>
+    <string name="negative_emotion_jealousy">Ревность</string>
+    <string name="negative_emotion_fear">Страх</string>
+    <string name="negative_emotion_shame">Стыд</string>
+    <string name="negative_emotion_anxiety">Тревога</string>
     <string name="negative_emotion_apathy">Апатия</string>
 
-    <string name="positive_emotion_inspiration">Вдохновение</string>
-    <string name="positive_emotion_satisfaction">Удовлетворение</string>
     <string name="positive_emotion_serenity">Безмятежность</string>
-    <string name="positive_emotion_optimism">Оптимизм</string>
-    <string name="positive_emotion_empathy">Эмпатия</string>
-    <string name="positive_emotion_calm">Спокойствие</string>
-    <string name="positive_emotion_hope">Надежда</string>
-    <string name="positive_emotion_enthusiasm">Энтузиазм</string>
     <string name="positive_emotion_gratitude">Благодарность</string>
+    <string name="positive_emotion_inspiration">Вдохновение</string>
+    <string name="positive_emotion_hope">Надежда</string>
+    <string name="positive_emotion_optimism">Оптимизм</string>
     <string name="positive_emotion_joy">Радость</string>
-    <string name="positive_emotion_pride">Гордость</string>
+    <string name="positive_emotion_calm">Спокойствие</string>
+    <string name="positive_emotion_satisfaction">Удовлетворение</string>
+    <string name="positive_emotion_enthusiasm">Энтузиазм</string>
 
     <string name="alert_delete">Вы уверены, что хотите удалить эту запись?</string>
     <string name="alert_back">Вы уверены, что хотите прекратить запись?</string>
@@ -53,6 +56,7 @@
     <string name="toast_saved">Запись сохранена</string>
     <string name="toast_deleted">Запись удалена</string>
     <string name="toast_forgot_to_set_the_level">Не установлена степень уверенности</string>
+    <string name="toast_changes_saved">Изменения сохранены</string>
 
     <string name="button_cancel">Отмена</string>
     <string name="button_delete">Удалить</string>
@@ -158,9 +162,6 @@
     <string name="date">date</string>
     <string name="report_theme">Report</string>
     <string name="background_mind_fullness">background_mind_fullness</string>
-
-
-
 
 
 </resources>

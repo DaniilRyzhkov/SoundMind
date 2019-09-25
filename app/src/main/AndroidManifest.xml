@@ -86,6 +86,7 @@
             android:name=".PositiveEmotionActivity"
             android:label="@string/label_positive"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
             />
 
         <meta-data
