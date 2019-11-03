@@ -8,6 +8,7 @@
     tools:context=".HelpActivity">
 
     <ImageView
+        android:id="@+id/background_take_book"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.1"
@@ -40,7 +41,7 @@
                 android:text="@string/help_1_what_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_1_what_text" />
@@ -52,7 +53,7 @@
                 android:text="@string/help_2_when_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_2_when_text" />
@@ -70,7 +71,7 @@
                 android:text="@string/help_32_situation_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_32_situation_text" />
@@ -82,7 +83,7 @@
                 android:text="@string/help_33_emotion_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_33_emotion_text" />
@@ -94,7 +95,7 @@
                 android:text="@string/help_34_thought_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_34_thought_text" />
@@ -106,7 +107,7 @@
                 android:text="@string/help_35_action_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_35_action_text" />
@@ -118,14 +119,14 @@
                 android:text="@string/help_36_response_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_36_response_text" />
 
             <TextView
                 android:id="@+id/btnOpenMistakesActivity_copy"
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -140,7 +141,7 @@
                 android:text="@string/help_37_result_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_37_result_text" />
@@ -152,7 +153,7 @@
                 android:text="@string/help_4_send_title" />
 
             <TextView
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/help_4_send_text" />

@@ -19,6 +19,6 @@
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:text="@string/positive_emotion_inspiration"
-        android:textColor="@color/colorPrimaryVeryDark" />
+        android:textColor="@color/colorTextPlain" />
 
 </LinearLayout>

@@ -5,7 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".S1_SituationActivity"
+    tools:context=".Step_1_SituationActivity"
     android:background="@color/colorBackground">
 
     <LinearLayout
@@ -27,6 +27,7 @@
             android:importantForAutofill="no"
             android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
             android:lines="6"
+            android:textColor="@color/colorTextPlain"
             android:textSize="18sp">
 
             <requestFocus />

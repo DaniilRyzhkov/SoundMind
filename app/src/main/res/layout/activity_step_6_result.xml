@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".S6_ResultActivity"
+    tools:context=".Step_6_ResultActivity"
     android:background="@color/colorBackground">
 
     <LinearLayout
@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:ems="10"
+            android:textColor="@color/colorTextPlain"
             android:fontFamily="@font/neucha"
             android:gravity="start|top"
             android:hint="@string/hint_result"

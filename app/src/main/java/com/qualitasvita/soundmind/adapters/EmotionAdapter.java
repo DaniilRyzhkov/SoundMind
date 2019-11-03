@@ -1,15 +1,16 @@
 package com.qualitasvita.soundmind.adapters;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import com.qualitasvita.soundmind.Answer;
 import com.qualitasvita.soundmind.R;
@@ -86,8 +87,8 @@ public class EmotionAdapter extends ArrayAdapter<Answer> {
 
     private void setActivateColor(Answer emotion, ViewHolder viewHolder) {
         if (emotion.getLevel() > 0) {
-            viewHolder.tvEmotion.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
-            viewHolder.tvLevel.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+            viewHolder.tvEmotion.setTextColor(ContextCompat.getColor(getContext(), R.color.colorTextPlain));
+            viewHolder.tvLevel.setTextColor(ContextCompat.getColor(getContext(), R.color.colorTextPlain));
         } else {
             viewHolder.tvEmotion.setTextColor(ContextCompat.getColor(getContext(), R.color.colorDisable));
             viewHolder.tvLevel.setTextColor(ContextCompat.getColor(getContext(), R.color.colorDisable));

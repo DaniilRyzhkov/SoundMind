@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Sound Mind</string>
-    <string name="version">Версия 1.5</string>
+    <string name="version">Версия 1.6</string>
 
     <string name="label_situation">Ситуация</string>
     <string name="label_emotions">Эмоции</string>
@@ -12,6 +12,7 @@
     <string name="label_about">О приложении</string>
     <string name="label_mistakes">Когнитивные ошибки</string>
     <string name="label_positive">Что вы чувствуете?</string>
+    <string name="label_settings">Настройки</string>
 
     <string name="hint_situation">Кратко опишите произошедшее.</string>
     <string name="hint_emotions">Насколько сильно были выражены ваши эмоции?</string>
@@ -78,6 +79,7 @@
     <string name="item_info">О приложении</string>
     <string name="item_help">Помощь</string>
     <string name="item_intro">Интро</string>
+    <string name="item_settings">Настройки</string>
 
     <string name="link_youtube">youtube link</string>
     <string name="link_vkontakte">vkontakte link</string>
@@ -162,6 +164,7 @@
     <string name="date">date</string>
     <string name="report_theme">Report</string>
     <string name="background_mind_fullness">background_mind_fullness</string>
-
+    <string name="solid_background">Однотонный фон</string>
+    <string name="dark_mode">Темная тема</string>
 
 </resources>

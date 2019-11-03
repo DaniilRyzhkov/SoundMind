@@ -2,22 +2,26 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Активити отображает готовую запись.
  * Есть возможность удалить запись или отправить в виде сообщения.
  */
 public class CompletedNoteActivity extends AppCompatActivity {
+
+    ImageView background;
 
     private static String dateText;
     private static String situationText;
@@ -36,6 +40,8 @@ public class CompletedNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_completed_note);
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
         deleteThisNote = false;
+
+        background = findViewById(R.id.background_nice);
 
         // Извлечь из экстра объект Note и его позицию
         Bundle arguments = getIntent().getExtras();
@@ -76,7 +82,7 @@ public class CompletedNoteActivity extends AppCompatActivity {
         });
 
         // Закрыть активити, вернуться на главный экран
-        Button homeButton = findViewById(R.id.btnHome);
+        ImageButton homeButton = findViewById(R.id.btnHome);
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -170,5 +176,18 @@ public class CompletedNoteActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences settings = this.getSharedPreferences(SettingsActivity.PREF_SETTINGS, MODE_PRIVATE);
+        boolean status = settings.getBoolean(SettingsActivity.PREF_SOLID_BACKGROUND, false);
+        if (status) {
+            background.setVisibility(View.GONE);
+        } else {
+            background.setVisibility(View.VISIBLE);
+        }
+
     }
 }

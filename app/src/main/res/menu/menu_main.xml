@@ -11,15 +11,24 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/settings"
+        android:orderInCategory="2"
+        android:icon="@drawable/round_settings_applications_white_36"
+        android:title="@string/item_settings"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/info"
         android:icon="@drawable/baseline_info_white_24"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
         android:title="@string/item_info"
         app:showAsAction="never" />
     <item
         android:id="@+id/intro"
-        android:orderInCategory="3"
+        android:orderInCategory="4"
         android:title="@string/item_intro"
         app:showAsAction="never" />
+
+
 
 </menu>

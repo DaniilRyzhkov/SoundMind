@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".S5_ResponseActivity"
+    tools:context=".Step_5_ResponseActivity"
     android:background="@color/colorBackground">
 
     <EditText
@@ -18,6 +18,7 @@
         android:hint="@string/hint_response"
         android:inputType="textMultiLine|textCapSentences|textNoSuggestions"
         android:lines="5"
+        android:textColor="@color/colorTextPlain"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -38,42 +39,42 @@
 
             <TextView
                 android:id="@+id/question_1"
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/question_1" />
 
             <TextView
                 android:id="@+id/question_2"
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/question_2" />
 
             <TextView
                 android:id="@+id/question_3"
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/question_3" />
 
             <TextView
                 android:id="@+id/question_4"
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/question_4" />
 
             <TextView
                 android:id="@+id/question_5"
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/question_5" />
 
             <TextView
                 android:id="@+id/question_6"
-                style="@style/text_simple"
+                style="@style/text_plain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/question_6" />

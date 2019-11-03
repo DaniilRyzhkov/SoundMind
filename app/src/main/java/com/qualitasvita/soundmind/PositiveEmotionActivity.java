@@ -1,7 +1,5 @@
 package com.qualitasvita.soundmind;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -41,14 +41,14 @@ public class PositiveEmotionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_positive_emotion);
 
-        emotions = NewNoteActivity.getList(getIntent().getSerializableExtra(S6_ResultActivity.EXTRA_POSITIVE));
+        emotions = NewNoteActivity.getList(getIntent().getSerializableExtra(Step_6_ResultActivity.EXTRA_POSITIVE));
 
         btnSavePositive = findViewById(R.id.btnSavePositive);
         btnSavePositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.putExtra(S6_ResultActivity.EXTRA_POSITIVE, emotions);
+                intent.putExtra(Step_6_ResultActivity.EXTRA_POSITIVE, emotions);
                 setResult(RESULT_OK, intent);
                 Toast.makeText(PositiveEmotionActivity.this, R.string.toast_changes_saved, Toast.LENGTH_SHORT).show();
                 finish();

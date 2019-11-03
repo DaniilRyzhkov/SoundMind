@@ -1,8 +1,9 @@
 package com.qualitasvita.soundmind;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -67,22 +68,22 @@ public class NewNoteActivity extends AppCompatActivity {
     // Может обратиться к фрагментам?
     private void createNote() {
         if (situationText == null) {
-            startActivityForResult(new Intent(this, S1_SituationActivity.class), REQUEST_CODE_SITUATION);
+            startActivityForResult(new Intent(this, Step_1_SituationActivity.class), REQUEST_CODE_SITUATION);
         } else {
             if (emotionText == null) {
-                startActivityForResult(new Intent(this, S2_EmotionActivity.class), REQUEST_CODE_EMOTION);
+                startActivityForResult(new Intent(this, Step_2_EmotionActivity.class), REQUEST_CODE_EMOTION);
             } else {
                 if (thoughtText == null) {
-                    startActivityForResult(new Intent(this, S3_ThoughtActivity.class), REQUEST_CODE_THOUGHT);
+                    startActivityForResult(new Intent(this, Step_3_ThoughtActivity.class), REQUEST_CODE_THOUGHT);
                 } else {
                     if (actionText == null) {
-                        startActivityForResult(new Intent(this, S4_ActionActivity.class), REQUEST_CODE_ACTION);
+                        startActivityForResult(new Intent(this, Step_4_ActionActivity.class), REQUEST_CODE_ACTION);
                     } else {
                         if (responseText == null) {
-                            startActivityForResult(new Intent(this, S5_ResponseActivity.class), REQUEST_CODE_RESPONSE);
+                            startActivityForResult(new Intent(this, Step_5_ResponseActivity.class), REQUEST_CODE_RESPONSE);
                         } else {
                             if (resultText == null) {
-                                Intent intent = new Intent(this, S6_ResultActivity.class);
+                                Intent intent = new Intent(this, Step_6_ResultActivity.class);
                                 intent.putExtra(EXTRA_EMOTION_LIST, emotions);
                                 intent.putExtra(EXTRA_THOUGHT_LIST, thoughts);
                                 startActivityForResult(intent, REQUEST_CODE_RESULT);

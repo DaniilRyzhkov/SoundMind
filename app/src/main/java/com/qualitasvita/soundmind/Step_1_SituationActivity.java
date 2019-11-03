@@ -2,8 +2,6 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,17 +10,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 /**
  * Активити получает описание ситуации, отправляет обратно в NewNoteActivity
  */
-public class S1_SituationActivity extends AppCompatActivity {
+public class Step_1_SituationActivity extends AppCompatActivity {
 
     Button btnSaveSituation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_situation);
+        setContentView(R.layout.activity_step_1_situation);
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
 
         btnSaveSituation = findViewById(R.id.btnSaveSituation);
@@ -57,8 +58,11 @@ public class S1_SituationActivity extends AppCompatActivity {
             case R.id.intro:
                 startActivity(new Intent(this, IntroActivity.class));
                 break;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
             case android.R.id.home:
-                AlertDialog.Builder builder = new AlertDialog.Builder(S1_SituationActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Step_1_SituationActivity.this);
                 builder.setMessage(R.string.alert_back);
                 builder.setCancelable(true);
 

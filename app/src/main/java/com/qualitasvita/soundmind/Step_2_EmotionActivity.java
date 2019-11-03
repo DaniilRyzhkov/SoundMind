@@ -2,8 +2,6 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.qualitasvita.soundmind.adapters.EmotionAdapter;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import java.util.List;
 /**
  * Активити получает информацию об эмоциях, отправляет обратно в NewNoteActivity
  */
-public class S2_EmotionActivity extends AppCompatActivity {
+public class Step_2_EmotionActivity extends AppCompatActivity {
 
     Button btnSaveEmotion;
     ListView emotionsList;
@@ -28,7 +29,7 @@ public class S2_EmotionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_emotion);
+        setContentView(R.layout.activity_step_2_emotion);
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
         setEmotionArray();
 
@@ -90,8 +91,11 @@ public class S2_EmotionActivity extends AppCompatActivity {
             case R.id.intro:
                 startActivity(new Intent(this, IntroActivity.class));
                 break;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
             case android.R.id.home:
-                AlertDialog.Builder builder = new AlertDialog.Builder(S2_EmotionActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Step_2_EmotionActivity.this);
                 builder.setMessage(R.string.alert_back);
                 builder.setCancelable(true);
 

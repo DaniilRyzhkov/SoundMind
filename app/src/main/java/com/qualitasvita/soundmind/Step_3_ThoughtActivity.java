@@ -2,20 +2,18 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.qualitasvita.soundmind.adapters.ThoughtAdapter;
 
@@ -25,7 +23,7 @@ import java.util.List;
 /**
  * Активити получает информацию об мыслях, отправляет обратно в NewNoteActivity
  */
-public class S3_ThoughtActivity extends AppCompatActivity {
+public class Step_3_ThoughtActivity extends AppCompatActivity {
 
     Button btnSaveThought;
     RecyclerView thoughtsList;
@@ -34,13 +32,13 @@ public class S3_ThoughtActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_thought);
+        setContentView(R.layout.activity_step_3_thought);
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
 
         setThoughtArray();
         thoughtsList = findViewById(R.id.thoughtList);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(S3_ThoughtActivity.this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Step_3_ThoughtActivity.this);
 
         ThoughtAdapter thoughtAdapter = new ThoughtAdapter(thoughts, linearLayoutManager); // обнулить в ондестрой?
         thoughtsList.setLayoutManager(linearLayoutManager);
@@ -55,7 +53,7 @@ public class S3_ThoughtActivity extends AppCompatActivity {
                 boolean correctKey = true; // Проверка наличия текста и выставленного уровня
                 for (Answer thought : thoughts) {
                     if (!thought.getText().equals("") && thought.getLevel() == 0) { // Если текст введен, а уровень не выставлен
-                        Toast.makeText(S3_ThoughtActivity.this, // Показать напоминание
+                        Toast.makeText(Step_3_ThoughtActivity.this, // Показать напоминание
                                 getResources().getString(R.string.toast_forgot_to_set_the_level), Toast.LENGTH_LONG).show();
                         correctKey = false;
                         break;
@@ -114,8 +112,11 @@ public class S3_ThoughtActivity extends AppCompatActivity {
             case R.id.intro:
                 startActivity(new Intent(this, IntroActivity.class));
                 break;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
             case android.R.id.home:
-                AlertDialog.Builder builder = new AlertDialog.Builder(S3_ThoughtActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Step_3_ThoughtActivity.this);
                 builder.setMessage(R.string.alert_back);
                 builder.setCancelable(true);
 

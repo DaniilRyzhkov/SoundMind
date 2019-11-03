@@ -2,11 +2,6 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +11,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.qualitasvita.soundmind.adapters.EmotionAdapter;
 
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ import java.util.List;
 /**
  * Активити получает повторную информацию об эмоциях и мыслях, а также конечный результат, отправляет обратно в NewNoteActivity
  */
-public class S6_ResultActivity extends AppCompatActivity {
+public class Step_6_ResultActivity extends AppCompatActivity {
 
     Button btnSaveResult, btnAddPositive;
     ListView resultList;
@@ -37,7 +35,7 @@ public class S6_ResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+        setContentView(R.layout.activity_step_6_result);
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
 
         setResultArray();
@@ -66,7 +64,7 @@ public class S6_ResultActivity extends AppCompatActivity {
         btnAddPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(S6_ResultActivity.this, PositiveEmotionActivity.class);
+                Intent intent = new Intent(Step_6_ResultActivity.this, PositiveEmotionActivity.class);
                 intent.putExtra(EXTRA_POSITIVE, positiveEmotions);
                 startActivityForResult(intent, REQUEST_CODE_POSITIVE);
             }
@@ -120,8 +118,11 @@ public class S6_ResultActivity extends AppCompatActivity {
             case R.id.intro:
                 startActivity(new Intent(this, IntroActivity.class));
                 break;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
             case android.R.id.home:
-                AlertDialog.Builder builder = new AlertDialog.Builder(S6_ResultActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Step_6_ResultActivity.this);
                 builder.setMessage(R.string.alert_back);
                 builder.setCancelable(true);
                 // Отменить ввод данных, закрыть окно

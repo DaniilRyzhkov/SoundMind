@@ -1,33 +1,24 @@
 package com.qualitasvita.soundmind.adapters;
 
 import android.content.Context;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.qualitasvita.soundmind.Answer;
-import com.qualitasvita.soundmind.Note;
-import com.qualitasvita.soundmind.R;
-import com.qualitasvita.soundmind.S3_ThoughtActivity;
-import com.qualitasvita.soundmind.di.App;
-import com.qualitasvita.soundmind.di.AppModule;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.qualitasvita.soundmind.Answer;
+import com.qualitasvita.soundmind.R;
+import com.qualitasvita.soundmind.di.App;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -65,7 +56,7 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 thoughts.get(viewHolder.getAdapterPosition()).setText(s.toString());
-                setActivateColor(thoughts.get(viewHolder.getAdapterPosition()), viewHolder);
+                //setActivateColor(thoughts.get(viewHolder.getAdapterPosition()), viewHolder);
             }
 
             @Override
@@ -95,7 +86,7 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
                     notifyItemInserted(viewHolder.getAdapterPosition());
                     linearLayoutManager.scrollToPositionWithOffset(0, 0);
                 }
-                setActivateColor(thoughts.get(viewHolder.getAdapterPosition()), viewHolder);
+                //setActivateColor(thoughts.get(viewHolder.getAdapterPosition()), viewHolder);
             }
         });
         return viewHolder;
@@ -110,7 +101,7 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
         holder.sbThoughtLevel.setProgress(thoughts.get(holder.getAdapterPosition()).getLevel() * 10);
         holder.etText.setText(thoughts.get(holder.getAdapterPosition()).getText());
         holder.tvMindNum.setText(thoughtTitle);
-        setActivateColor(thought, holder);
+        //setActivateColor(thought, holder);
     }
 
     @Override
@@ -135,9 +126,9 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
     private void setActivateColor(Answer answer, ViewHolder viewHolder) {
         String str = viewHolder.etText.getText().toString();
         if (answer.getLevel() > 0 && !(str.equals(""))) {
-            viewHolder.tvMindNum.setTextColor(ContextCompat.getColor(context, R.color.colorPrimaryDark));
-            viewHolder.tvThoughtLevel.setTextColor(ContextCompat.getColor(context, R.color.colorPrimaryDark));
-            viewHolder.etText.setTextColor(ContextCompat.getColor(context, R.color.colorPrimaryVeryDark));
+            viewHolder.tvMindNum.setTextColor(ContextCompat.getColor(context, R.color.colorTextPlain));
+            viewHolder.tvThoughtLevel.setTextColor(ContextCompat.getColor(context, R.color.colorTextPlain));
+            viewHolder.etText.setTextColor(ContextCompat.getColor(context, R.color.colorTextPlain));
         } else {
             viewHolder.tvMindNum.setTextColor(ContextCompat.getColor(context, R.color.colorDisable));
             viewHolder.tvThoughtLevel.setTextColor(ContextCompat.getColor(context, R.color.colorDisable));

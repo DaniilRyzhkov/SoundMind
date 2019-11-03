@@ -1,4 +1,3 @@
-
 package com.qualitasvita.soundmind;
 
 
@@ -8,26 +7,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.qualitasvita.soundmind.adapters.MainAdapter;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.qualitasvita.soundmind.adapters.MainAdapter;
 
 import java.util.ArrayList;
 
@@ -38,25 +34,36 @@ import java.util.ArrayList;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private static ArrayList<Note> notes = new ArrayList<>(); // БД в виде списка
-    //private static ArrayList<String> items; //Список заголовков пунктов в списке записей
-    private RecyclerView listNote; //Список пунктов записей
-    private static final int REQUEST_CODE_NEW_NOTE = 0;
     public static final int REQUEST_CODE_COMPLETED_NOTE = 9;
+    public static final String EXTRA_NOTE_POSITION = "com.qualitasvita.soundmind.note_position";
+    private static final int REQUEST_CODE_NEW_NOTE = 0;
     //public static final int REQUEST_CODE_INTRO = 8;
     private static final String REF_KEY = "IntroSlider";
     private static final String REF_FLAG = "FirstTimeStartFlag";
     private static final String TAG = "sound_mind";
-    public static final String EXTRA_NOTE_POSITION = "com.qualitasvita.soundmind.note_position";
-
-    ImageView backgroundMonster;
+    private static ArrayList<Note> notes = new ArrayList<>(); // БД в виде списка
+    ImageView background;
     TextView hintHelp, hintCreate;
+    //private static ArrayList<String> items; //Список заголовков пунктов в списке записей
+    private RecyclerView listNote; //Список пунктов записей
+
+    /**
+     * Метод отображает стрелку назад на ActionBar.
+     * Вызывается во многих других активити.
+     *
+     * @param actionBar соответствует getSupportActionBar()
+     */
+    public static void showHomeButtonOnActionBar(ActionBar actionBar) {
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+        }
+    }
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (isFirstTimeStartApp()) {
             setFirstTimeStartStatus(false, getApplicationContext());
             startActivity(new Intent(this, WelcomeActivity.class));
@@ -64,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        backgroundMonster = findViewById(R.id.background_monster);
+        background = findViewById(R.id.background_mind_fullness);
         hintHelp = findViewById(R.id.hint_help);
         hintCreate = findViewById(R.id.hint_create);
 
@@ -80,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_NEW_NOTE);
             }
         });
+
     }
 
     @Override
@@ -92,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
         listNote.setHasFixedSize(true);
         listNote.setAdapter(mainAdapter);
         mainAdapter.setList(notes);
+
+        SharedPreferences settings = this.getSharedPreferences(SettingsActivity.PREF_SETTINGS, MODE_PRIVATE);
+        boolean status = settings.getBoolean(SettingsActivity.PREF_SOLID_BACKGROUND, false);
+        if (status) {
+            background.setVisibility(View.GONE);
+        } else {
+            background.setVisibility(View.VISIBLE);
+        }
 
         if (BuildConfig.DEBUG) Log.d(TAG, "onResume() completed");
     }
@@ -150,6 +166,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.intro:
                 startActivity(new Intent(this, IntroActivity.class));
+                break;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -232,19 +251,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Метод отображает стрелку назад на ActionBar.
-     * Вызывается во многих других активити.
-     *
-     * @param actionBar соответствует getSupportActionBar()
-     */
-    public static void showHomeButtonOnActionBar(ActionBar actionBar) {
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
-        }
-    }
-
-    /**
      * Метод используется для однократного запуска WelcomeActivity(Splash) и IntroActivity
      *
      * @return true при первом запуске, false при повторном.
@@ -288,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
             hintHelp.setVisibility(View.GONE);
             hintCreate.setVisibility(View.GONE);
         }
-        backgroundMonster.setAlpha(transparent_back);
+        background.setAlpha(transparent_back);
         //findViewById(R.id.hint_help).setAlpha(transparent_hint);
         //findViewById(R.id.hint_create).setAlpha(transparent_hint);
     }

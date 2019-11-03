@@ -113,7 +113,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_serenity"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_0" />
@@ -123,7 +123,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_gratitude"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_1" />
@@ -133,7 +133,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_inspiration"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_2" />
@@ -143,7 +143,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_hope"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_3" />
@@ -153,7 +153,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_optimism"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_4" />
@@ -163,7 +163,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_joy"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_5" />
@@ -173,7 +173,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_calm"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_6" />
@@ -183,7 +183,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_satisfaction"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_7" />
@@ -193,7 +193,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/positive_emotion_enthusiasm"
-        android:textColor="@color/colorPrimaryVeryDark"
+        android:textColor="@color/colorTextPlain"
         app:layout_constraintBottom_toBottomOf="@+id/cbPositive_8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cbPositive_8" />

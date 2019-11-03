@@ -2,8 +2,6 @@ package com.qualitasvita.soundmind;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,38 +9,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-/**
- * Активити получает информацию об анализе события, отправляет обратно в NewNoteActivity
- */
-public class S5_ResponseActivity extends AppCompatActivity {
 
-    Button btnSaveResponse;
-    Button btnMistakes;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+/**
+ * Активити получает информацию о совершенных действиях, отправляет обратно в NewNoteActivity
+ */
+public class Step_4_ActionActivity extends AppCompatActivity {
+
+    Button btnSaveAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_response);
+        setContentView(R.layout.activity_step_4_action);
         MainActivity.showHomeButtonOnActionBar(getSupportActionBar());
 
-        btnSaveResponse = findViewById(R.id.btnSaveResponse);
-        btnMistakes = findViewById(R.id.btnOpenMistakesActivity);
-
-        btnSaveResponse.setOnClickListener(new View.OnClickListener() {
+        btnSaveAction = findViewById(R.id.btnSaveAction);
+        btnSaveAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String responseText = ((TextView) findViewById(R.id.response)).getText().toString();
+                String actionText = ((TextView) findViewById(R.id.action)).getText().toString();
                 Intent intent = new Intent();
-                intent.putExtra(NewNoteActivity.EXTRA_RESPONSE_TEXT, responseText);
+                intent.putExtra(NewNoteActivity.EXTRA_ACTION_TEXT, actionText);
                 setResult(RESULT_OK, intent);
                 finish();
-            }
-        });
-
-        btnMistakes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(S5_ResponseActivity.this, MistakesActivity.class));
             }
         });
     }
@@ -66,8 +57,11 @@ public class S5_ResponseActivity extends AppCompatActivity {
             case R.id.intro:
                 startActivity(new Intent(this, IntroActivity.class));
                 break;
+            case R.id.settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
             case android.R.id.home:
-                AlertDialog.Builder builder = new AlertDialog.Builder(S5_ResponseActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Step_4_ActionActivity.this);
                 builder.setMessage(R.string.alert_back);
                 builder.setCancelable(true);
 

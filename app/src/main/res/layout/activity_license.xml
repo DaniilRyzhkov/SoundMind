@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/text_simple"
+            style="@style/text_plain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -24,7 +24,7 @@
 
         <TextView
 
-            style="@style/text_simple"
+            style="@style/text_plain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
