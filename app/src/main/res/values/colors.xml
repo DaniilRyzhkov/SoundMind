@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3b7a93</color>
     <color name="colorPrimaryDark">#004e65</color>
     <color name="colorBackground">#fffff9</color>
+    <color name="colorIconBackground">#fffff9</color>
 
     <color name="colorTextPlain">#00263b</color>
     <color name="colorTextTitle">#3b7a93</color>
