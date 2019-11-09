@@ -11,11 +11,14 @@ import android.widget.Switch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+/**
+ * Активити меню настроек
+ */
 public class SettingsActivity extends AppCompatActivity {
 
-    ImageView background;
-    Switch solidBackground;
-    Switch darkMode;
+    ImageView background; // Фоновый рисунок, используется для наглядного изменения функции "однотонный фон"
+    Switch solidBackground; // Переключатель "однотонный фон"
+    Switch darkMode; // Переключатель "Темная тема"
 
     public static final String PREF_SETTINGS = "settings";
     public static final String PREF_SOLID_BACKGROUND = "solid_background";
@@ -31,12 +34,16 @@ public class SettingsActivity extends AppCompatActivity {
         solidBackground = findViewById(R.id.switch_solid_background);
         darkMode = findViewById(R.id.switch_dark_mode);
 
+        // Установить переключатели в сохраненное положение
         setSwitchStatus();
 
+        // Слушатель на переключатель "Однотонный фон"
         solidBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                // Сохранение состояние в SharedPreferences
                 setPrefSolidBackground(b);
+                // Изменение вида на текущей активити
                 if(b){
                     background.setVisibility(View.GONE);
                 } else {
@@ -45,10 +52,13 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        // Слушатель на переключатель "Темная тема"
         darkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                // Сохранение состояния в SharedPreferences
                 setPrefDarkMode(b);
+                // Установка выбраннного состояния mode DayNight
                 if (b){
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
@@ -58,6 +68,11 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Сохранение выбранной настройки(положения) переключателя режима "Однотонный фон" в SharedPreferences.
+     * Этот режим позволяет сделать фоновые рисунки невидимыми во всем приложении.
+     * @param status состояние переключателя, true - убрать рисунки, false - показать.
+     */
     private void setPrefSolidBackground(boolean status) {
         SharedPreferences settings = getApplicationContext().getSharedPreferences(PREF_SETTINGS, MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
@@ -65,6 +80,11 @@ public class SettingsActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * Сохранение выбранной настройки(положения) переключателя режима "Тёмная тема" в SharedPreferences.
+     * Этот режим позволяет включить тёмную тему(Night mode)
+     * @param status состояние переключателя, true - night, false - day.
+     */
     private void setPrefDarkMode(boolean status) {
         SharedPreferences settings = getApplicationContext().getSharedPreferences(PREF_SETTINGS, MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
@@ -72,12 +92,18 @@ public class SettingsActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * Устнавливает переключатель в сохраненное ранее положение, используется при создании активити
+     * в методе OnCreate().
+     */
     private void setSwitchStatus(){
         SharedPreferences settings = getApplicationContext().getSharedPreferences(PREF_SETTINGS, MODE_PRIVATE);
         solidBackground.setChecked(settings.getBoolean(PREF_SOLID_BACKGROUND, false));
         darkMode.setChecked(settings.getBoolean(PREF_DARK_MODE,false));
     }
 
+    // закрытие активити при нажатии на стрелочку назад
+    // Активити заменить на фрагмент, метод оставить в активити-контейнере
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -86,6 +112,11 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Установить видимость фонового рисунка, в завивсимости от настроек.
+     * На данный момент каждая активити с рисунком в методе OnResume() проверяет это состоние,
+     * чтобы избежать перезапуска приложения при изменении настроек.
+     */
     @Override
     protected void onResume() {
         super.onResume();

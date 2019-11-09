@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+/**
+ * Активтити для выбора положительных эмоций
+ * ПЕРЕПИСАТЬ
+ */
 public class PositiveEmotionActivity extends AppCompatActivity {
 
     private static ArrayList<Answer> emotions;
