@@ -1,66 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_thought_root_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="2dp"
-    android:background="@color/colorBackground">
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/colorCardBackground"
+    app:cardCornerRadius="8dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_margin="16dp">
+
+        <EditText
+            android:id="@+id/thoughtText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/hint_thoughts"
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:fontFamily="@font/neucha"
+            android:gravity="start|top"
+            android:hint="@string/hint_thoughts"
+            android:inputType="textMultiLine|textCapSentences|text"
+            android:maxLines="16"
+            android:minLines="1"
+            android:textColor="@color/colorTextPlain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mindNum" />
+
+        <SeekBar
+            android:id="@+id/sbThoughtLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+
+            android:max="1000"
+            android:progress="0"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thoughtText" />
 
         <TextView
-            android:fontFamily="@font/neucha"
             android:id="@+id/mindNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_weight="1"
+            android:fontFamily="@font/neucha"
             android:gravity="start"
             android:text="@string/zero"
             android:textColor="@color/colorTextPlain"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:fontFamily="@font/neucha"
             android:id="@+id/thought_level_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/neucha"
             android:gravity="end"
             android:text="@string/zero"
             android:textColor="@color/colorTextPlain"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:fontFamily="@font/neucha"
-        android:id="@+id/thoughtText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/hint_thoughts"
-        android:inputType="textMultiLine|textCapSentences|text"
-        android:lines="3"
-        android:textColor="@color/colorTextPlain">
-
-
-    </EditText>
-
-
-    <SeekBar
-        android:id="@+id/sbThoughtLevel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="1000"
-        android:progress="0" />
-
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

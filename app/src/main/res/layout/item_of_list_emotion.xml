@@ -1,49 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_emotion_root_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingTop="12dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="12dp">
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/colorCardBackground"
+    app:cardCornerRadius="8dp">
 
-    <SeekBar
-        android:id="@+id/sbEmotionLevel"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:max="1000"
-        android:progress="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmotion" />
+        android:animateLayoutChanges="false"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="12dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="12dp">
 
-    <TextView
-        android:id="@+id/tvEmLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/neucha"
-        android:text="@string/zero"
-        android:textColor="@color/colorDisable"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvEmotion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/neucha"
+            android:text="@string/negative_emotion_anger"
+            android:textColor="@color/colorTextPlain"
+            android:textSize="20sp"
+            />
 
-    <TextView
-        android:id="@+id/tvEmotion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/neucha"
-        android:text="@string/negative_emotion_anger"
-        android:textColor="@color/colorDisable"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvEmLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/neucha"
+            android:text="@string/zero"
+            android:textColor="@color/colorTextPlain"
+            android:textSize="20sp"
+            android:visibility="visible"
+             />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
+
+<!--<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:animateLayoutChanges="false"
+android:paddingLeft="16dp"
+android:paddingTop="12dp"
+android:paddingRight="16dp"
+android:paddingBottom="12dp">
+
+<TextView
+    android:id="@+id/tvEmotion"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="48dp"
+    android:layout_weight="1"
+    android:fontFamily="@font/neucha"
+    android:text="@string/negative_emotion_anger"
+    android:textColor="@color/colorTextPlain"
+    android:textSize="20sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/tvEmLevel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/neucha"
+    android:text="@string/zero"
+    android:textColor="@color/colorTextPlain"
+    android:textSize="20sp"
+    android:visibility="gone"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>-->
+

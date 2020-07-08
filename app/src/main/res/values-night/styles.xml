@@ -1,7 +1,23 @@
 <resources>
 
 
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorBackgroundFloating">@color/colorBackgroundFloating</item>
+
+        <item name="md_color_title">@color/colorTextTitle</item>
+        <item name="md_color_content">@color/colorTextPlain</item>
+        <item name="md_color_button_text">@color/colorAccent</item>
+        <item name="md_font_title">@font/neucha</item>
+        <item name="md_font_body">@font/neucha</item>
+        <item name="md_corner_radius">16dp</item>
+        <item name="md_background_color">@color/colorBackgroundFloating</item>
+    </style>
+
+    <style name="AppThemeMaterial" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -66,7 +82,24 @@
         <item name="android:layout_marginEnd">8dp</item>
     </style>
 
+    <style name="title_card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">48dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginEnd">48dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:alpha">0.9</item>
+    </style>
 
-
-
+    <style name="text_title_card">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/neucha</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
 </resources>

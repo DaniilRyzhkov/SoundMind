@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.NewNoteActivity">
+
+    <item
+        android:id="@+id/mistakes"
+        android:icon="@drawable/ic_article_white_24dp"
+        android:orderInCategory="1"
+        android:title="@string/button_mistakes"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/positive"
+        android:icon="@drawable/ic_emoji_emotions_white_24dp"
+        android:orderInCategory="2"
+        android:title="@string/button_add_positive_emotion"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/ic_help"
+        android:orderInCategory="3"
+        android:title="@string/label_help"
+        android:visible="true"
+        app:showAsAction="always" />
+
+</menu>

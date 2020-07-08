@@ -2,14 +2,22 @@
 <resources>
     <color name="colorPrimary">#15212f</color>
     <color name="colorPrimaryDark">#0f1822</color>
+    <color name="colorPrimaryLight">#313b47</color>
+
     <color name="colorBackground">#0f1822</color>
+    <color name="colorCardBackground">#182a3a</color>
+    <color name="colorCardBackgroundTransparent">#77182a3a</color>
     <color name="colorIconBackground">#fffffa</color>
+    <color name="colorBackgroundFloating">#262d38</color>
 
     <color name="colorTextPlain">#fff6ea</color>
     <color name="colorTextTitle">#ffb753</color>
 
     <color name="colorAccent">#fb8c00</color>
     <color name="colorWhite">#fff</color>
-    <color name="colorDisable">#888</color>
+    <color name="colorDisable">#bdbdbd</color>
     <color name="colorBlack">#000</color>
 </resources>
+
+<!--
+<color name="colorCardBackground">#111b26</color>-->

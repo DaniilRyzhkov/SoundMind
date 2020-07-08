@@ -13,82 +13,41 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".WelcomeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".IntroActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".NewNoteActivity"
+            android:name=".activities.WelcomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Step_1_SituationActivity"
-            android:label="@string/label_situation"
+            android:name=".activities.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.NewNoteActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Step_2_EmotionActivity"
-            android:label="@string/label_emotions"
+            android:name=".activities.CompletedNoteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Step_3_ThoughtActivity"
-            android:label="@string/label_thoughts"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Step_4_ActionActivity"
-            android:label="@string/label_action"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Step_5_ResponseActivity"
-            android:label="@string/label_response"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".Step_6_ResultActivity"
-            android:label="@string/label_result"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name=".CompletedNoteActivity"
+            android:name=".activities.HelpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HelpActivity"
-            android:label="@string/label_help"
+            android:name=".activities.AboutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".InfoActivity"
-            android:label="@string/label_about"
+            android:name=".activities.MistakesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MistakesActivity"
-            android:label="@string/label_mistakes"
+            android:name=".activities.LicenseAgreementActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LicenseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PositiveEmotionActivity"
-            android:label="@string/label_positive"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/label_settings"
+            android:name=".activities.SettingsActivity"
             android:screenOrientation="portrait" />
 
         <meta-data

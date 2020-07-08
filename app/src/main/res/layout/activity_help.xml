@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".HelpActivity">
+    tools:context=".activities.HelpActivity">
 
     <ImageView
         android:id="@+id/background_take_book"
@@ -19,157 +19,192 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <androidx.cardview.widget.CardView
+        style="@style/title_card"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            style="@style/text_title_card"
+            android:text="@string/label_help" />
 
-        <LinearLayout
+    </androidx.cardview.widget.CardView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="42dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_1_what_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_1_what_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_2_when_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_2_when_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_3_how_title" />
+
+                <TextView
+                    style="@style/text_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_32_situation_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_32_situation_text" />
+
+                <TextView
+                    style="@style/text_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_33_emotion_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_33_emotion_text" />
+
+                <TextView
+                    style="@style/text_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_34_thought_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_34_thought_text" />
+
+                <TextView
+                    style="@style/text_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_35_action_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_35_action_text" />
+
+                <TextView
+                    style="@style/text_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_36_response_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_36_response_text" />
+
+                <TextView
+                    android:id="@+id/btnOpenMistakesActivity_copy"
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/button_tv_mistakes"
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    style="@style/text_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_37_result_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_37_result_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_4_send_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_4_send_text" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:autoLink="web"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/neucha"
+                    android:text="@string/link_web" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_help"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="vertical">
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/colorPrimary"
+            android:theme="@style/AppThemeMaterial"
+            app:backgroundTint="@color/colorPrimary"
+            app:hideOnScroll="true"
+            app:navigationIcon="@drawable/ic_back_white_36dp" />
 
-            <TextView
-                style="@style/text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_1_what_title" />
 
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_1_what_text" />
-
-            <TextView
-                style="@style/text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_2_when_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_2_when_text" />
-
-            <TextView
-                style="@style/text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_3_how_title" />
-
-            <TextView
-                style="@style/text_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_32_situation_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_32_situation_text" />
-
-            <TextView
-                style="@style/text_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_33_emotion_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_33_emotion_text" />
-
-            <TextView
-                style="@style/text_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_34_thought_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_34_thought_text" />
-
-            <TextView
-                style="@style/text_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_35_action_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_35_action_text" />
-
-            <TextView
-                style="@style/text_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_36_response_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_36_response_text" />
-
-            <TextView
-                android:id="@+id/btnOpenMistakesActivity_copy"
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/button_tv_mistakes"
-                android:textColor="@color/colorAccent" />
-
-            <TextView
-                style="@style/text_subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_37_result_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_37_result_text" />
-
-            <TextView
-                style="@style/text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_4_send_title" />
-
-            <TextView
-                style="@style/text_plain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/help_4_send_text" />
-
-            <TextView
-                android:fontFamily="@font/neucha"
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="30dp"
-                android:autoLink="web"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="@string/link_web" />
-
-        </LinearLayout>
-    </ScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

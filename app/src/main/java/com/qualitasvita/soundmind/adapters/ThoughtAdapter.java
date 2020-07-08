@@ -11,15 +11,17 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.qualitasvita.soundmind.Answer;
 import com.qualitasvita.soundmind.R;
 import com.qualitasvita.soundmind.di.App;
+import com.qualitasvita.soundmind.interactor.NewNoteInteractor;
+import com.qualitasvita.soundmind.model.Answer;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -30,12 +32,13 @@ import javax.inject.Inject;
 public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHolder> {
 
     @Inject
-    Context context;
+    NewNoteInteractor newNoteInteractor;
 
-    private List<Answer> thoughts;
+    private ArrayList<Answer> thoughts;
     private LinearLayoutManager linearLayoutManager;
+    private Context context;
 
-    public ThoughtAdapter(List<Answer> thoughts, LinearLayoutManager linearLayoutManager) {
+    public ThoughtAdapter(ArrayList<Answer> thoughts, LinearLayoutManager linearLayoutManager) {
         this.thoughts = thoughts;
         this.linearLayoutManager = linearLayoutManager;
         App.getComponent().inject(this);
@@ -46,7 +49,10 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_of_list_thought, parent, false);
         final ViewHolder viewHolder = new ViewHolder(view);
+        context = parent.getContext();
         viewHolder.etText.requestFocus();
+
+        // EditText TextWatcher
         viewHolder.etText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -56,7 +62,15 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 thoughts.get(viewHolder.getAdapterPosition()).setText(s.toString());
-                //setActivateColor(thoughts.get(viewHolder.getAdapterPosition()), viewHolder);
+                if (viewHolder.sbThoughtLevel.getVisibility() == View.GONE) {
+                    viewHolder.sbThoughtLevel.setVisibility(View.VISIBLE);
+                }
+                // if first: setLevel, second: setText. Check a color
+                setActivateColor(viewHolder);
+                // read array!
+                if (thoughts.get(viewHolder.getAdapterPosition()).getLevel() > 0) {
+                    newNoteInteractor.saveThoughtsArray(thoughts);
+                }
             }
 
             @Override
@@ -64,6 +78,15 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
 
             }
         });
+
+        // EditText Listener
+        viewHolder.etText.setOnClickListener(view1 -> {
+            if (viewHolder.sbThoughtLevel.getVisibility() == View.GONE) {
+                viewHolder.sbThoughtLevel.setVisibility(View.VISIBLE);
+            }
+        });
+
+        // SeekBar Listener
         viewHolder.sbThoughtLevel.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -78,17 +101,37 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                viewHolder.cardViewRoot.setCardBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark));
+                setActivateColor(viewHolder);
                 thoughts.get(viewHolder.getAdapterPosition()).setLevel(seekBar.getProgress() / 10);
+
+                //setActivateColor(viewHolder);
+                // Если из EditText еще не был считан ни один символ, то есть он пуст, но SeekBar
+                // был передвинут, то SeekBar НЕ будет скрыт, в противном случае юудет скрыт
+                if (!thoughts.get(viewHolder.getAdapterPosition()).getText().isEmpty()) {
+                    newNoteInteractor.saveThoughtsArray(thoughts);
+                    viewHolder.sbThoughtLevel.setVisibility(View.GONE);
+                }
+
                 if (viewHolder.getAdapterPosition() == 0 &&
                         !thoughts.get(viewHolder.getAdapterPosition()).getText().equals("") &&
                         thoughts.get(viewHolder.getAdapterPosition()).getLevel() > 0) {
-                    thoughts.add(0, new Answer());
+                    thoughts.add(0, new Answer("", 0));
                     notifyItemInserted(viewHolder.getAdapterPosition());
                     linearLayoutManager.scrollToPositionWithOffset(0, 0);
                 }
-                //setActivateColor(thoughts.get(viewHolder.getAdapterPosition()), viewHolder);
             }
         });
+
+        // CardView Listener
+        viewHolder.cardViewRoot.setOnClickListener(view12 -> {
+            if (viewHolder.sbThoughtLevel.getVisibility() == View.GONE) {
+                viewHolder.sbThoughtLevel.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.sbThoughtLevel.setVisibility(View.GONE);
+            }
+        });
+
         return viewHolder;
     }
 
@@ -101,7 +144,7 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
         holder.sbThoughtLevel.setProgress(thoughts.get(holder.getAdapterPosition()).getLevel() * 10);
         holder.etText.setText(thoughts.get(holder.getAdapterPosition()).getText());
         holder.tvMindNum.setText(thoughtTitle);
-        //setActivateColor(thought, holder);
+        setActivateColor(holder);
     }
 
     @Override
@@ -113,6 +156,7 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
         final EditText etText;
         final TextView tvThoughtLevel, tvMindNum;
         final SeekBar sbThoughtLevel;
+        final CardView cardViewRoot;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -120,20 +164,16 @@ public class ThoughtAdapter extends RecyclerView.Adapter<ThoughtAdapter.ViewHold
             tvThoughtLevel = itemView.findViewById(R.id.thought_level_view);
             sbThoughtLevel = itemView.findViewById(R.id.sbThoughtLevel);
             tvMindNum = itemView.findViewById(R.id.mindNum);
+            cardViewRoot = itemView.findViewById(R.id.item_thought_root_layout);
         }
     }
 
-    private void setActivateColor(Answer answer, ViewHolder viewHolder) {
+    private void setActivateColor(ViewHolder viewHolder) {
         String str = viewHolder.etText.getText().toString();
-        if (answer.getLevel() > 0 && !(str.equals(""))) {
-            viewHolder.tvMindNum.setTextColor(ContextCompat.getColor(context, R.color.colorTextPlain));
-            viewHolder.tvThoughtLevel.setTextColor(ContextCompat.getColor(context, R.color.colorTextPlain));
-            viewHolder.etText.setTextColor(ContextCompat.getColor(context, R.color.colorTextPlain));
+        if (viewHolder.sbThoughtLevel.getProgress() > 0 && !(str.equals(""))) {
+            viewHolder.cardViewRoot.setCardBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryLight));
         } else {
-            viewHolder.tvMindNum.setTextColor(ContextCompat.getColor(context, R.color.colorDisable));
-            viewHolder.tvThoughtLevel.setTextColor(ContextCompat.getColor(context, R.color.colorDisable));
-            viewHolder.etText.setTextColor(ContextCompat.getColor(context, R.color.colorDisable));
+            viewHolder.cardViewRoot.setCardBackgroundColor(ContextCompat.getColor(context, R.color.colorCardBackground));
         }
     }
-
 }

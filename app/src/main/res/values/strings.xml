@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Sound Mind</string>
-    <string name="version">Версия 1.7</string>
+    <string name="version">Версия 1.8</string>
 
     <string name="label_situation">Ситуация</string>
     <string name="label_emotions">Эмоции</string>
@@ -9,10 +9,12 @@
     <string name="label_response">Адаптивный ответ</string>
     <string name="label_result">Результат</string>
     <string name="label_help">Помощь</string>
+    <string name="label_help_new_note">Как сделать запись?</string>
     <string name="label_about">О приложении</string>
     <string name="label_mistakes">Когнитивные ошибки</string>
     <string name="label_positive">Что вы чувствуете?</string>
     <string name="label_settings">Настройки</string>
+    <string name="label_license_agreement">License agreement</string>
 
     <string name="hint_situation">Кратко опишите произошедшее.</string>
     <string name="hint_emotions">Насколько сильно были выражены ваши эмоции?</string>
@@ -22,6 +24,15 @@
     <string name="hint_result">Что вы теперь сделаете или уже сделали?\nВновь оцените интенсивность ваших чувств и убежденность в истинность мысли.\nНажмите на кнопку \"+ Эмоции\", чтобы добавить положительные эмоции.</string>
     <string name="hint_help">Нажмите на вопросительный знак, если вам нужна помощь</string>
     <string name="hint_create">Нажмите на большую оранжевую кнопку, чтобы сделать запись</string>
+    <string name="hint_swipe">Перелистните страницу</string>
+
+    <string name="help_situation">Кратко опишите произошедшее.</string>
+    <string name="help_emotions">Насколько сильно были выражены ваши эмоции?</string>
+    <string name="help_thoughts">О чем вы подумали? Насколько вы уверены в этом?</string>
+    <string name="help_action">Что вы сделали в данной ситуации? Как это повлияло на ваши чувства?</string>
+    <string name="help_response">Какие ошибки мышления вы могли допустить? Вопросы ниже помогут вам.</string>
+    <string name="help_result">Что вы теперь сделаете или уже сделали?\nВновь оцените интенсивность ваших чувств и убежденность в истинность мысли.\nНажмите на кнопку \"+ Эмоции\", чтобы добавить положительные эмоции.</string>
+
 
     <string name="negative_emotion_hurt">Боль</string>
     <string name="negative_emotion_guilt">Вина</string>
@@ -42,6 +53,7 @@
     <string name="negative_emotion_apathy">Апатия</string>
 
     <string name="positive_emotion_serenity">Безмятежность</string>
+
     <string name="positive_emotion_gratitude">Благодарность</string>
     <string name="positive_emotion_inspiration">Вдохновение</string>
     <string name="positive_emotion_hope">Надежда</string>
@@ -74,12 +86,14 @@
     <string name="button_start">Начать</string>
     <string name="button_add_positive_emotion">+ Эмоции</string>
     <string name="button_home">домой</string>
+    <string name="button_save">Сохранить</string>
 
     <string name="item_delete">Удалить</string>
     <string name="item_info">О приложении</string>
     <string name="item_help">Помощь</string>
     <string name="item_intro">Интро</string>
     <string name="item_settings">Настройки</string>
+    <string name="item_back_to_home">Назад</string>
 
     <string name="link_youtube">youtube link</string>
     <string name="link_vkontakte">vkontakte link</string>
@@ -87,10 +101,18 @@
     <string name="link_facebook">facebook link</string>
     <string name="link_telegram">telegram link</string>
     <string name="link_web">http://qualitasvita.com</string>
-
     <string name="about_logo">Qualitas Vita company logo</string>
+
     <string name="about_company">Приложение разработано по заказу психологического центра \"Качество Жизни\".\n\nМы — команда психологов. Нас объединяет увлеченность и ответственность.\n\nМы любим свою профессию, и нам важно работать хорошо. Поэтому мы опираемся только на методы с научно подтвержденной эффективностью, постоянно развиваемся и учимся новому, посещаем конференции и семинары.\n\nЦель нашей с вами совместной работы - научить вас быть самому себе терапевтом.\n\nРабота с психологом в нашем центре ограничена во времени и ориентирована на решение проблем. Клиенты в процессе консультирования приобретают навыки, которые могут использовать за стенами кабинета всю оставшуюся жизнь.</string>
     <string name="about_send_comment">Для нас важно, чтобы приложение было удобным, работало без сбоев, и постоянно развивалось. Мы будем очень благодарны, если вы оставите отзыв или пожелание о работе приложения. Daniil.Ryzhkov.dev@gmail.com</string>
+
+    <string name="help_new_note">1. Ситуация\nКратко опишите какое реальное событие, размышление, фантазия или воспоминание вызвало неприятное переживание? Какие дискомфортные физические ощущения возникли при этом?\n\n
+        2. Негативные Эмоции\nКакие чувства вы испытывали в тот момент? Оцените насколько сильным было каждое чувство по шкале от 0 до 100%.\n\n
+        3. Автоматические Мысли\nКакая мысль или образы возникли при этом? Обязательно укажите, насколько сильно вы были убеждены в каждой из этих мыслей в тот момент.\n\n
+        4. Поведение\nОпишите, как вы поступили в данной ситуации, что сделали? Как это повлияло на ваши чувства?\n\n
+        5. Адаптивный ответ\nКакие ошибки мышления вы могли допустить? Изучите список самых распространнёных когнитивных искажений. Когда будете делать запись, прочитайте вспомогательные вопросы и постарайтесь ответить на них, это поможет сформировать альтернативные мысли.\n\n
+        6. Результат\nНасколько вы убеждены в каждой автоматической мысли сейчас? Какие эмоции вы испытываете сейчас? Вновь оцените их интенсивность. Что вы теперь сделаете? Если вам стало легче, можете отметить положительные эмоции.
+    </string>
 
     <string name="help_1_what_title">Для чего это приложение?</string>
     <string name="help_1_what_text">Вы испытываете стресс, тревогу или страх, и это существенно снижает качество вашей жизни? Методы когнитивно-поведенческой терапии могут помочь вам, они имеют серьезную доказательную базу исследований.\n\nВ основе КПТ лежит "Когнитивная модель" - само событие не влияет на то, как мы себя чувствуем, на нас влияет то, что мы об этом событии думаем, т.е. образ нашего мышления. Соответственно, задача психотерапии изменить этот образ мышления, сделать его более рациональным и в конечном счёте эффективным.\n\nЭто приложение нацелено помочь вам понять ход ваших мыслей, выявить негативные и искажающие действительность мысли. Сделав запись, вы почувствуете себя лучше. Прокрутив ситуацию повторно, вы, вероятно, увидите всё под другим углом, в другом цвете. Не разочаровывайтесь, если уровень тревожности не падает. Потребуется время, чтобы овладеть необходимыми навыками.</string>
@@ -116,7 +138,7 @@
     <string name="question_2">2. Существует ли альтернативное объяснение происходящего?</string>
     <string name="question_3">3. Каков возможный наихудший исход? Смогу ли я это пережить? Каков возможный наилучший исход? Каков самый реалистичный исход?</string>
     <string name="question_4">4. Каковы последствия моей убежденности в данной автоматической мысли? Каковы могут быть последствия, если я изменю свою точку зрения?</string>
-    <string name="question_5">5. Что мне следуует сделать в связи с этим?</string>
+    <string name="question_5">5. Что мне следует сделать в связи с этим?</string>
     <string name="question_6">6. Если бы мой друг был в аналогичной ситуации, и к нему пришла бы такая же мысль, что бы я ему сказал?</string>
 
     <string name="slide_1_title">Что-то произошло?</string>
@@ -129,9 +151,9 @@
     <string name="slide_4_text">Первые мысли - автоматические, они подвержены когнитивным искажениям. Они могут не соответствовать действительности. Подвергните их критике, замените альтернативными, более рациональными. Они изменят ваше отношение к ситуации.</string>
     <string name="slide_5_title">Выход есть</string>
     <string name="slide_5_text">Начните регулярно делать записи. Однако, результат не будет мгновенным, вам потребуется время.</string>
-
     <string name="mistake_0_text">Когнитивные искажения — это систематические ошибки в мышлении, поведении и восприятии ситуации. Предубеждения, стереотипы, эмоции и другие факторы могут стать причиной ловушки, в которую попадает мышление. Это мешает мыслить рационально, приводит к неточным суждениям, искажает восприятие действительности. Научно доказано существование нескольких десятков различных искажений. Ниже представлены лишь самые распространенные.</string>
     <string name="mistake_1_title">1. Дихотомическое мышление</string>
+
     <string name="mistake_1_text">Также называемое черно-белым мышлением, полярным или мышлением в стиле «все или ничего»: представление о том, что существуют только две категории для оценки событий, людей, поступков (черное-белое, плохое-хорошее). Отказ от оценки в континууме.\n\nПример: «Если я не добьюсь успеха во всем, то я неудачник».</string>
     <string name="mistake_2_title">2. Катастрофизация</string>
     <string name="mistake_2_text">Также называемая негативными предсказаниями: предсказание событий будущего исключительно негативно, без учета других, более вероятных исходов.\n\nПример: «Я так расстроюсь, что не смогу вообще ничего делать».</string>
@@ -155,9 +177,13 @@
     <string name="mistake_11_text">Мышление в стиле «я должен»: наличие четкой непреложной идеи о том, как должны вести себя другие люди или каким должно быть собственное поведение. Если ожидания не оправдываются, человек воспринимает это как неудачу.\n\nПример: «Ужасно, что я ошибся. Я должен во всем добиваться успеха».</string>
     <string name="mistake_12_title">12. Туннельное мышление</string>
     <string name="mistake_12_text">Акцент на негативных аспектах ситуации.\n\nПример: «Учитель моего сына ничего не может сделать правильно. Он постоянно критикует, не чувствует детей, и вообще он не состоялся как педагог».</string>
-
     <string name="license_dagger">Dagger\nThe software may be used under license agreement available for review at:\nhttps://github.com/google/dagger/blob/master/LICENSE.txt</string>
     <string name="license_neucha">Neucha font\nAbout font: https://fonts.google.com/specimen/Neucha\nThe software may be used under license agreement available for review at:\nhttp://scripts.sil.org/OFL</string>
+
+    <string name="license_glide">Glide\nThe software may be used under license agreement available for review at:\nhttps://github.com/bumptech/glide/blob/master/LICENSE</string>
+    <string name="license_page_indicator_view">PageIndicatorView\nThe software may be used under license agreement available for review at:\nhttps://github.com/romandanylyk/PageIndicatorView</string>
+    <string name="license_moxy">Moxy\nThe software may be used under license agreement available for review at:\nhttps://github.com/Arello-Mobile/Moxy</string>
+    <string name="license_material_dialogs">Material dialogs\nThe software may be used under license agreement available for review at:\nhttps://github.com/afollestad/material-dialogs/blob/master/LICENSE.md</string>
 
     <string name="zero">0</string>
     <string name="thought">Мысль</string>
@@ -166,5 +192,18 @@
     <string name="background_mind_fullness">background_mind_fullness</string>
     <string name="solid_background">Однотонный фон</string>
     <string name="dark_mode">Темная тема</string>
+    <string name="p100">100 %</string>
+
+    <string-array name="positive_emotions">
+        <item>Безмятежность</item>
+        <item>Благодарность</item>
+        <item>Вдохновение</item>
+        <item>Надежда</item>
+        <item>Оптимизм</item>
+        <item>Радость</item>
+        <item>Спокойствие</item>
+        <item>Удовлетворение</item>
+        <item>Энтузиазм</item>
+    </string-array>
 
 </resources>

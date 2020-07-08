@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".fragments.Step6_ResultFragment">
+
+        <Button
+        android:id="@+id/btnSaveNote"
+        style="@style/Style_Button_next"
+        android:layout_width="108dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="76dp"
+        android:contentDescription="@string/button_save"
+        android:text="@string/button_save"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddPositiveEmotion"
+        style="@style/Style_Button_hint"
+        android:layout_width="126dp"
+        android:layout_height="36dp"
+        android:elevation="30dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/button_add_positive_emotion"
+        android:text="@string/button_add_positive_emotion"
+        android:onClick="showPositiveDialog"
+        android:fontFamily="@font/neucha"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/title_card"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/text_title_card"
+            android:text="@string/label_result" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/resultList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="50dp"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:paddingBottom="68dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="end">
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/positive_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:menu="@menu/menu_positive"
+                android:layout_gravity="end"/>
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+    </FrameLayout>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

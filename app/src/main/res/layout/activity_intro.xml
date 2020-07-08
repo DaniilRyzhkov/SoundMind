@@ -5,50 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".IntroActivity">
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager_intro"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/dot_layout"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/button_start"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:contentDescription="@string/about_logo"
-        android:src="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="gone"
-        />
-
-    <!--<Button
-        android:id="@+id/btn_next_intro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:padding="8dp"
-        android:text="@string/button_next"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />-->
+    tools:context=".activities.IntroActivity">
 
     <Button
         android:id="@+id/btn_skip_intro"
@@ -59,6 +16,43 @@
         android:text="@string/button_skip"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_intro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView_intro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:piv_animationType="swap"
+        app:piv_dynamicCount="true"
+        app:piv_interactiveAnimation="true"
+        app:piv_padding="5dp"
+        app:piv_radius="3.2dp"
+        app:piv_selectedColor="@color/colorAccent"
+        app:piv_unselectedColor="@color/colorDisable"
+        app:piv_viewPager="@id/viewpager_intro" />
+
+    <!--<ImageView
+        android:id="@+id/btn_start"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:contentDescription="@string/about_logo"
+        android:focusable="true"
+        android:src="@android:color/transparent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,12 +5,6 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <CheckBox
-        android:id="@+id/checkboxPositiveItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
     <TextView
         android:id="@+id/tvPositiveItem"
         style="@style/text_title"
@@ -20,5 +14,11 @@
         android:layout_marginStart="8dp"
         android:text="@string/positive_emotion_inspiration"
         android:textColor="@color/colorTextPlain" />
+
+    <CheckBox
+        android:id="@+id/checkboxPositiveItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 </LinearLayout>

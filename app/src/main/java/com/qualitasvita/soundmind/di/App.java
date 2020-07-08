@@ -5,10 +5,10 @@ import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.qualitasvita.soundmind.SettingsActivity;
+import com.qualitasvita.soundmind.activities.SettingsActivity;
 
 /**
- * DI class to create DaggerAppComponent
+ *
  */
 public class App extends Application {
 
@@ -37,6 +37,8 @@ public class App extends Application {
     protected AppComponent buildComponent() {
         return DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
+                .interactorModule(new InteractorModule())
+                .databaseModule(new DatabaseModule(this))
                 .build();
     }
 }

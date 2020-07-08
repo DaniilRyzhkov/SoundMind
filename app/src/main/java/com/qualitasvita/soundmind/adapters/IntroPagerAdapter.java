@@ -1,48 +1,59 @@
 package com.qualitasvita.soundmind.adapters;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.qualitasvita.soundmind.R;
+import com.qualitasvita.soundmind.di.App;
+
+import javax.inject.Inject;
 
 /**
  * Вспомогательный класс, реализуется поддержка PagerAdapter в IntroActivity
  */
-public class IntroPagerAdapter extends PagerAdapter {
+public class IntroPagerAdapter extends RecyclerView.Adapter<IntroPagerAdapter.ViewHolder> {
 
-    private LayoutInflater inflater;
-    private int[]layouts;
-    private Context context;
+    @Inject
+    Context context;
 
-    public IntroPagerAdapter(int[] layouts, Context context) {
+    private int[] layouts;
+
+    public IntroPagerAdapter(int[] layouts) {
         this.layouts = layouts;
-        this.context = context;
-    }
-
-    @Override
-    public int getCount() {
-        return layouts.length;
-    }
-
-    @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == object;
+        App.getComponent().inject(this);
     }
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(layouts[position],container,false);
-        container.addView(view);
-        return view;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.slide_1, parent, false));
     }
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        View view = (View) object;
-        container.removeView(view);
+    public void onBindViewHolder(@NonNull IntroPagerAdapter.ViewHolder holder, int position) {
+        Glide.with(context).load(layouts[position]).into(holder.imageView);
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return layouts.length;
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        ImageView imageView;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            this.imageView = itemView.findViewById(R.id.intro_logo);
+        }
     }
 }
+

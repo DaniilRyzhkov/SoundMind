@@ -1,168 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MistakesActivity"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    tools:context=".activities.MistakesActivity">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        style="@style/title_card"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/text_title_card"
+            android:text="@string/label_mistakes" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            style="@style/text_plain"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="42dp"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_0_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_1_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_1_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_2_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_2_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_3_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_3_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_4_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_4_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_5_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_5_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_6_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_6_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_7_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_7_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_8_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_8_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_9_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_9_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_10_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_10_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_11_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_11_text" />
+
+                <TextView
+                    style="@style/text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mistake_12_title" />
+
+                <TextView
+                    style="@style/text_plain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:text="@string/mistake_12_text" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_mistakes"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mistake_0_text" />
+            android:layout_gravity="bottom"
+            android:theme="@style/AppThemeMaterial"
+            app:backgroundTint="@color/colorPrimary"
+            app:hideOnScroll="true"
+            app:navigationIcon="@drawable/ic_back_white_36dp" />
 
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_1_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_1_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_2_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_2_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_3_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_3_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_4_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_4_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_5_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_5_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_6_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_6_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_7_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_7_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_8_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_8_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_9_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_9_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_10_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_10_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_11_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_11_text" />
-
-        <TextView
-            style="@style/text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_12_title" />
-
-        <TextView
-            style="@style/text_plain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/mistake_12_text"
-            android:layout_marginBottom="24dp"/>
-
-
-    </LinearLayout>
-</ScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
